@@ -1,0 +1,23 @@
+## Slicing Pandas DataFrame:
+  df['egg']
+  df['egg'][1:4]
+  df.loc[:,'eggs':'salt']
+  df.loc['Jan':'Apr',:]
+  df.iloc[2:5,1:]
+  df.loc['Jan':'May', [ 'eggs','spam']]
+  df.iloc[[0,4,5],0:2]
+  df.['eggs'] -- serie
+  df.[['eggs']] -- dataframe
+
+## Filtering Pandas DataFrame:
+  df.salt > 60 -- Boolean
+  df[df.salt > 60]
+  df[Boolean] -- intuition
+  df[ (df.salt>50) & (df.salt<60) ]
+  df.loc [:, df.all() ] -- return columns with all non-zero values
+  df.loc [:, df.any() ] -- return columns with any non-zero values
+  df.loc [:, df.isnull().any() ] -- return columns with any NaN values
+  df.loc [:, df.notnull().all()] -- return columns with all non-NaN values
+  df.dropna (how='any') -- drop columns with any NaN
+  df.eggs [ df.salt > 55 ] += 5
+  
