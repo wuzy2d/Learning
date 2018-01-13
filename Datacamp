@@ -21,3 +21,68 @@
   df.dropna (how='any') -- drop columns with any NaN
   df.eggs [ df.salt > 55 ] += 5
   
+### Index objects and labeled data
+  unemployment.index = unemployment['Zip']
+  del unemployment['Zip']
+  unemployment = pd.read_csv('Unemployment.csv',index='Zip')
+  new_idx = [index.upper() for index in sales.index]
+  sales.index = new_idx
+  -- index is immutable, but can be replaced/changed all at once
+  
+### Hierarchical indexing
+  stocks = stocks.set_index(['Symbol','Date']) -- set two columns to composite index
+  stocks = stocks.sort_index()
+  stocks.loc[('CSCO', ['2016','2017']), :]
+  stocks.loc[(slice(None),slice('2016','2017)), :] -- range operation
+  
+### Pivoting DataFrames
+  trials.pivot(index='treatment',columns='gender') -- retain all values
+  trials.pivot(index='treatment',columns='gender',value='response') -- specify value
+  
+### Stacking & unstacking DataFrames
+  -- pivot doesn't work with multi-level indexes
+  trials.unstack(level=1) -- to remove level 1 index and turn into column
+  trials.unstack(level='gender')
+  trials.stack(level='gender')
+  swapped = stacked.swaplevel(0, 1) -- swaping index levels
+  swapped.sort_index()
+  
+### Melting DataFrames
+  pd.melt(new_trials,id_vars=['treatment']),value_vars=['F','M'])
+  
+### Pivot tables
+  more_trials.pivot_table(index='treatment',columns='gender',values='response',aggfunc='count')
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
