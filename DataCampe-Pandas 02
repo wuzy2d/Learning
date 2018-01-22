@@ -1,0 +1,37 @@
+
+### Reading multiple data files
+  filenames = ['sales-jan-2015.csv','sales-feb-2015.csv']
+  dataframes = []
+  for f in filenames:
+    dataframes.append(pd.read_csv(f))
+  
+  dataframe = [pd.read_csv(f) for f in filenames]
+  
+  from glob import glob
+  filenames = glob('sales*.csv')
+  dataframe = [pd.read_csv(f) for f in filenames]
+  
+### Reindexing DataFrames
+  w_mean = pd.read_csv('file.csv',index_col = 'column1')
+  
+  ordered = ['Jan','Apr','Jul','Oct]
+  w_mean2 = w_mean.reindex(ordered)
+  w_mean.reindex(w_max.index)
+  
+### Arithmetic with Series & DataFrames
+  week1_range.divide(week1_mean, axis='rows')
+  week1_mean.pct_change()*100
+  bronze + silver
+  bronze.add(silver, fill_value=0)
+  bronze + silver + gold
+  bronze.add(silver,fill_value=0).add(gold,fill_value=0)
+  
+### Appending & concatenating Series
+  result = s1.append(s2)
+  result2 = pd.concat([s1,s2])
+  result3 = pd.concat([s1,s2],ignore_index=True)
+
+### Appending & concatenating DataFrames
+  -- appending straight is equivalent to union operation
+  pd.concat([population,unemployment],axis=1) -- horizontal stacking by index
+  
