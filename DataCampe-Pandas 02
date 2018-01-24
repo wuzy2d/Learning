@@ -35,3 +35,20 @@
   -- appending straight is equivalent to union operation
   pd.concat([population,unemployment],axis=1) -- horizontal stacking by index
   
+### Concatenation, keys & Multiindexes
+  rain1314 = pd.concat([rain2013,rain2014],keys=[2013,2014],axis=0)
+  rain1314 = pd.concat([rain2013,rain2014],keys=[2013,2014],axis='columns')
+  rain_dic = {2013:rain2013, 2014:rain2014}
+  rain1134 = pd.concat(rain_dict,axis='columns')
+
+### Outer & inner joins
+  pd.concat([df1,df2],axis=1,join='inner')
+  pd.concat([df1,df2],axis=1,join='outer')
+
+
+
+
+
+
+  
+  
