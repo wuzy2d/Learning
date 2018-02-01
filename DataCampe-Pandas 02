@@ -45,8 +45,34 @@
   pd.concat([df1,df2],axis=1,join='inner')
   pd.concat([df1,df2],axis=1,join='outer')
 
-
-
+### Merging DataFrames (Merge extends concat)
+  pd.merge(population, cities)
+  pd.merge(bronze, gold) -- use all common columns to merge
+  pd.merge(bronze, gold, on='NOC') -- use NOC only
+  pd.merge(bronze, gold, on=['NOC','Country'] - use multiple
+  pd.merge(bronze, gold, on=['NOC','Country'], suffixes=['_b','_g']
+  pd.merge(counties, cities, left_on='CITY NAME', right_on='CITY')
+  
+  pd.merge(bronze, gold, on=['NOC','Country'], suffixes=['_b','_g'], how='right')
+  population.join(unemployment) -- left join by default, by index
+  population.join(unemployment, how='right') -- or 'inner', 'outer'
+  
+  df1.append(df2)
+  pd.concat([df1,df2])
+  df1.join(df2)
+  pd.merge(df1,df2)
+  
+### Ordered merges
+  pd.merge_ordered(hardware, software) -- outer and sort
+  pd.merge_ordered(stock, gdp, on='Date', fill_method = 'ffill')
+  
+  
+  
+  
+  
+  
+  
+  
 
 
 
