@@ -67,8 +67,18 @@
   pd.merge_ordered(stock, gdp, on='Date', fill_method = 'ffill')
   
   
+### Reading a serie of files and combine them
+  import pandas as pd
+  medals_dict = {}
+  for year in editions['Edition']:
+      file_path = 'summer_{:d}.csv'.format(year)
+      medals_dict[year] = pd.read_csv(file_path)
+      medals_dict[year] = medals_dict[year][['Athlete','NOC','Medal']]
+      medals_dict[year]['Edition'] = year
+  medals = pd.concat(medals_dict,ignore_index=True)
   
-  
+###
+
   
   
   
